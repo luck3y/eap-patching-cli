@@ -16,9 +16,11 @@ Basic instuctions:
     
     ```CUSTOM_INSTALL_DIRECTORIES=extensions```
   
-  (Alternatively, this may be provided to oc new-app with -e CUSTOM_INSTALL_DIRECTORIES)
+  (Alternatively, this may be provided to oc new-app with -e CUSTOM_INSTALL_DIRECTORIES, but easy to forget :) )
 
-- The application template or existing deployment config may now be modified to mount the configmap containing the patch and the application rebuilt, see: https://github.com/luck3y/hello-world-war/blob/patching/eap71-basic-s2i-patching.json#L344 and https://github.com/luck3y/hello-world-war/blob/patching/eap71-basic-s2i-patching.json#L433 for the required mount configuration. The volume name should match the configmap created in step 1 (jbeap-16108.zip, in this example.) The modifications to the deployment controller are similar (use ```oc edit dc/eap-app-name``` for the deployment controller approach, or see below to modify the template in use).
+- The application template or existing deployment config may now be modified to mount the configmap containing the patch and the application rebuilt, see: https://github.com/luck3y/hello-world-war/blob/patching/eap71-basic-s2i-patching.json#L344 and https://github.com/luck3y/hello-world-war/blob/patching/eap71-basic-s2i-patching.json#L433 for the required mount configuration. 
+
+- The volume name should match the configmap created in step 1 (jbeap-16108.zip, in this example.) 
 
 - install / replace the template: 
     $ oc -n openshift replace --force -f eap71-basic-s2i-patching.json
@@ -29,4 +31,7 @@ Basic instuctions:
        -p SOURCE_REPOSITORY_REF="patching" \
        -p CONTEXT_DIR="" \
        -p APPLICATION_NAME="eap-patching-demo" 
+
+- Alternativly, the deployment controller configurtion can be modified to add the required volumes. Modification of the deployment controller is similar to the template configuration changes (use ```oc edit dc/eap-app-name```, or edit the yaml in the OpenShift console).
+26
 
