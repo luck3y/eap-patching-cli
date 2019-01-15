@@ -26,12 +26,11 @@ Basic instuctions:
    ``` $ oc -n openshift replace --force -f eap71-basic-s2i-patching.json ```
 
 - create / recreate the application:
-    ```$ oc new-app --template=eap71-basic-s2i-patching \
+     ``` $ oc new-app --template=eap71-basic-s2i-patching \
        -p SOURCE_REPOSITORY_URL="https://github.com/luck3y/hello-world-war.git" \
        -p SOURCE_REPOSITORY_REF="master" \
        -p CONTEXT_DIR="" \
        -p APPLICATION_NAME="eap-patching-demo" ```
-
 - Alternativly, the deployment controller configurtion can be modified to add the required volumes. Modification of the deployment controller is similar to the template configuration changes (use ```oc edit dc/eap-app-name```, or edit the yaml in the OpenShift console).
 26
 
