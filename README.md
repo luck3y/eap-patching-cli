@@ -28,7 +28,7 @@ Basic instuctions:
 - create / recreate the application:
     $ oc new-app --template=eap71-basic-s2i-patching \
        -p SOURCE_REPOSITORY_URL="https://github.com/luck3y/hello-world-war.git" \
-       -p SOURCE_REPOSITORY_REF="patching" \
+       -p SOURCE_REPOSITORY_REF="master" \
        -p CONTEXT_DIR="" \
        -p APPLICATION_NAME="eap-patching-demo" 
 
