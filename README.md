@@ -5,7 +5,7 @@ Note, this example illustrates a means to apply a one-off patch to EAP, for more
 
 Basic instuctions: 
 
-- Create (and commit!) ConfigMap with patch:
+- Create a ConfigMap with patch:
 
   ```$ oc create -n myproject configmap jbeap-16108.zip --from-file=jbeap-16108.zip```
 
