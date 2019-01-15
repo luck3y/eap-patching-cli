@@ -32,5 +32,7 @@ Basic instuctions:
        -p CONTEXT_DIR="" \
        -p APPLICATION_NAME="eap-patching-demo" ```
 - Alternativly, the deployment controller configurtion can be modified to add the required volumes. Modification of the deployment controller is similar to the template configuration changes (use ```oc edit dc/eap-app-name```, or edit the yaml in the OpenShift console).
-26
 
+- When the server boots, you should see something similar to:
+
+```03:19:08,195 INFO  [org.jboss.as.patching] (MSC service thread 1-2) WFLYPAT0050: JBoss EAP cumulative patch ID is: jboss-eap-7.1.5.CP, one-off patches include: eap-715-jbeap-16108```
